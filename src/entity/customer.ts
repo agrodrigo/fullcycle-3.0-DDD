@@ -1,3 +1,15 @@
+/**
+ * Pastas organização
+ * 
+ * DOMAIN -> Complexidade de negócio
+ * ./entity
+ *  - customer.ts (regra de negócio)
+ * 
+ * MUNDO EXTERNO -> Complexidade acidental
+ * ./infra/entity/model
+ *  - customer.ts (get, set -> persistência no BD)
+ */
+
 class Customer {
   _id: string;
   _name: string;
