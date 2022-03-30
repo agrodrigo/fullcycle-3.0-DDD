@@ -10,8 +10,20 @@ export default class Order {
     this._id = id;
     this._customerId = customerId;
     this._items = items;
-    this._total = this.total()
+    this._total = this.total();
     this.validate();
+  }
+
+  get id(): string {
+    return this._id;
+  }
+
+  get customerId(): string {
+    return this._customerId;
+  }
+
+  get items(): OrderItem[] {
+    return this._items;
   }
 
   validate(): boolean {
@@ -31,6 +43,11 @@ export default class Order {
   }
 
   total(): number {
-    return this._items.reduce((acc, item) => acc + item.price, 0)
+    return this._items.reduce((acc, item) => acc + item.total, 0)
+  }
+
+  changeItems(items: OrderItem[]) {
+    this._items = items;
+    this._total = this.total();
   }
 }
